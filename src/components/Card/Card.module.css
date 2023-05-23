@@ -1,0 +1,50 @@
+.container {
+    background-color: transparent;
+    margin: 40px 0 20px 0;
+    color: #FF9933;
+    perspective: 1000px;
+}
+
+.individual {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: small;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.img {
+    height: 200px;
+    width: 200px;
+    border-radius: 12px;
+    box-shadow: 5px 5px 10px #36ff0e;
+}
+
+.container:hover .individual {
+    transform: rotateY(180deg);
+}
+
+.front,
+.back {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.front{
+    background-color: #bbb;
+    color: black;
+}
+
+.back {
+    position: absolute;
+    top:0%;
+    background-color: rgb(1, 3, 5);
+    color: white;
+    transform: rotateY(180deg);
+    width: fit-content;
+}
