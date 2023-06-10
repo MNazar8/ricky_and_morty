@@ -1,0 +1,4 @@
+.multiple{
+    display: flex;
+    flex-direction: row;
+}
