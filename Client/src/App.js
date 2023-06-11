@@ -25,7 +25,7 @@ function App() {
    const login = async (userData) => {
       try {
          const { email, password } = userData;
-         const { data } = await axios(URL + `?email=${email}&password=${password}`);
+         const { data } = await axios.post(URL + `?email=${email}&password=${password}/`);
          const { access } = data;
 
          setAccess(access);
@@ -43,7 +43,7 @@ function App() {
 
    const onSearch = async (id) => {
       try {
-         const data = await axios(`http://localhost:3001/rickandmorty/character/${id}`);
+         const {data} = await axios(`http://localhost:3001/rickandmorty/character/${id}`);
          if (data.name) {
             setCharacters((oldChars) => [...oldChars, data])
          }
@@ -55,15 +55,16 @@ function App() {
    const onClose = (id) => {
       const charactersFiltered = characters.filter(character =>
          character.id !== Number(id))
-      setCharacters(charactersFiltered)
-   }
-
+         setCharacters(charactersFiltered)
+      }
+      
    return (
       <div className='App'>
          {
             location.pathname !== '/' && <Nav onSearch={onSearch} setAccess=
                {setAccess} />
          }
+
          <Routes>
             <Route path='/' element={<Form login={login} />}></Route>
             <Route path="/home" element={<Cards characters={characters} onClose={onClose} />} />
