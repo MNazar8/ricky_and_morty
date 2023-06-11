@@ -8,7 +8,7 @@ router.get('/character/:id', (req, res) => {
     getCharById(req, res);
 });
 
-router.get('/login', (req, res) =>{
+router.post('/login', (req, res) =>{
     login(req, res);
 });
 
